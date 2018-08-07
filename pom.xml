@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>jana.com.example</groupId>
@@ -10,6 +10,7 @@
 
 	<name>janaRest</name>
 	<description>janaRest project for Spring Boot</description>
+	<inceptionYear>2018</inceptionYear>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -18,10 +19,19 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+	<organization>
+		<name>AM-BN GROUPE</name>
+	</organization>
+
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<encoding>UTF-8</encoding>
 		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+
+		<!-- Project dependencies properties -->
+		<com.squareup.okhttp3.version>3.9.1</com.squareup.okhttp3.version>
+		<com.squareup.retrofit2.version>2.3.0</com.squareup.retrofit2.version>
 	</properties>
 
 	<dependencies>
@@ -35,6 +45,55 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Spring Boot Starters -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- No version tag because it's injected by Spring Boot -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- Project Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<!-- No version tag because it's injected by Spring Boot -->
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- Retrofit2 for type-safe HTTP client -->
+		<dependency>
+			<groupId>com.squareup.retrofit2</groupId>
+			<artifactId>retrofit</artifactId>
+			<version>${com.squareup.retrofit2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.retrofit2</groupId>
+			<artifactId>converter-jackson</artifactId>
+			<version>${com.squareup.retrofit2.version}</version>
+		</dependency>
+
+		<!-- OkHttp (HTTP & HTTP/2 client) (used by Retrofit2) -->
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>${com.squareup.okhttp3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>logging-interceptor</artifactId>
+			<version>${com.squareup.okhttp3.version}</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
